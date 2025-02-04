@@ -1,20 +1,17 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
-      nodejs: 18  # Use Node.js 18 for React
+      nodejs: 18
     commands:
       - echo Installing dependencies...
-      - npm install  # Install npm dependencies
-  pre_build:
-    commands:
-      - echo Pre-building the project...
+      - npm install
   build:
     commands:
       - echo Building the React project...
-      - npm run build  # This generates the build folder
+      - npm run build
 
 artifacts:
   files:
-    - 'dist/**/*'  # Include all files (this is more relevant for output artifacts in the pipeline)
+    - '**/*'
+  base-directory: .  # Ensure the correct folder is used
