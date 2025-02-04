@@ -14,10 +14,6 @@ phases:
     commands:
       - echo Building the React project...
       - npm run build  # This generates the build folder
-  post_build:
-    commands:
-      - echo Deploying to S3...
-      - aws s3 sync build/ s3://demo-bpit-aws-s3/ --delete  # Deploy the build to S3 (ensure you replace <your-bucket-name>)
 
 artifacts:
   files:
