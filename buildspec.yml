@@ -14,4 +14,4 @@ phases:
 artifacts:
   files:
     - 'dist/**/*'
-  base-directory: .  # Ensure the correct folder is used
+  base-directory: dist  # Ensure the correct folder is used
