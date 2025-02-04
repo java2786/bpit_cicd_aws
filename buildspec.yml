@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      node: 18
   pre_build:
     commands:
       - echo Installing dependencies
@@ -14,4 +14,5 @@ phases:
       - npm run build
 artifacts:
   files:
-    - dist/*
+    - 'dist/**/*'  # This will include all files in the dist directory
+  base-directory: dist   # Upload files from the 'dist' folder as the root in S3
