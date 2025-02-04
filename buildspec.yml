@@ -15,4 +15,4 @@ phases:
 artifacts:
   files:
     - 'dist/**/*'  # This will include all files in the dist directory
-  base-directory: dist   # Upload files from the 'dist' folder as the root in S3
+  base-directory: .  # Upload files directly to the root of the S3 bucket
