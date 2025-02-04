@@ -3,16 +3,23 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 18  # Use Node.js 18 for React
+    commands:
+      - echo Installing dependencies...
+      - npm install  # Install npm dependencies
   pre_build:
     commands:
-      - echo Installing dependencies
-      - npm i
+      - echo Pre-building the project...
   build:
     commands:
-      - echo Building the project
-      - npm run build
+      - echo Building the React project...
+      - npm run build  # This generates the build folder
+  post_build:
+    commands:
+      - echo Deploying to S3...
+      - aws s3 sync build/ s3://demo-bpit-aws-s3/ --delete  # Deploy the build to S3 (ensure you replace <your-bucket-name>)
+
 artifacts:
   files:
-    - 'dist/**/*'  # This will include all files in the dist directory
+    - 'dist/**/*'  # Include all files (this is more relevant for output artifacts in the pipeline)
   base-directory: .  # Upload files directly to the root of the S3 bucket
